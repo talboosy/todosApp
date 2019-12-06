@@ -1,11 +1,11 @@
 <!-- Add todo component-->
+
 <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
-
-
-<!-- Loop on todos from server-->
 <app-todo-item
-  *ngFor="let todo of todos"
+  *ngFor="let todo of todos| async"
   [todo]="todo"
   (deleteTodo)="deleteTodo($event)"
 >
 </app-todo-item>
+<!-- Loop on todos from server-->
+
