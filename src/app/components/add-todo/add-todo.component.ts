@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 // class DBTodo {
 //   constructor(public title) { }
@@ -20,10 +20,10 @@ export class AddTodoComponent implements OnInit {
   constructor(private af: AngularFireDatabase) {
     // this.dbtodos = db.list('/todos');
 }
-  dbtodos$: AngularFireList<any[]>
+  // dbtodos$: AngularFireList<any[]>
 
   ngOnInit() {
-    this.dbtodos$ = this.af.list('/todos');
+    // this.dbtodos$ = this.af.list('/todos');
   }
 
   // getDBTodos() {
@@ -36,7 +36,6 @@ export class AddTodoComponent implements OnInit {
       title: this.title,
       completed: false
     }
-    this.dbtodos.push(todo)
 
     this.addTodo.emit(todo);
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import {
   AngularFirestoreDocument,
   AngularFirestore,
@@ -32,7 +32,7 @@ export class TodoService {
   todos: AngularFirestoreCollection<Todo>;
   private todoDoc: AngularFirestoreDocument<Todo>;
 
-  public dbtodos: FirebaseListObservable<DBTodo[]>;
+  // public dbtodos: FirebaseListObservable<DBTodo[]>;
 
 
   constructor(private http:HttpClient, private db: AngularFirestore) { 
@@ -64,7 +64,7 @@ export class TodoService {
   // }
 
   addTodo(todo) {
-    this.todos.add(todo)
+     this.todos.add(todo)
   }
 
   updateTodo(id, update) {

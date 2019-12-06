@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Todo } from "../../models/Todo";
 import { TodoService } from "../../services/todo.service";
 import { AngularFirestore } from "angularfire2/firestore";
@@ -14,6 +14,7 @@ import { map } from 'rxjs/operators';
 })
 export class TodosComponent implements OnInit {
   // todos: Todo[];
+  @Input() todo: Todo;
   todos: Observable<any[]>;
 
   constructor(private db: AngularFirestore, private todoService: TodoService) {}
@@ -39,16 +40,15 @@ export class TodosComponent implements OnInit {
     // console.log(this.todos)
   }
 
-  deleteTodo(todo: Todo) {
-    //Remove toto from UI
-    this.todos = this.todos.filter(t => t.id !== todo.id);
-    //Remove todo from server
-    this.todoService.deleteTodo(todo).subscribe();
-  }
+  // deleteTodo(todo: Todo) {
+  //   //Remove toto from UI
+  //   this.todos = this.todos.filter(t => t.id !== todo.id);
+  //   //Remove todo from server
+  //   this.todoService.deleteTodo(todo).subscribe();
+  // }
 
   addTodo(todo: Todo) {
-    this.todoService.addTodo(todo).subscribe(todo => {
-      this.todos.push(todo);
-    });
-  }
+     this.todoService.addTodo(todo)
+    }
+  
 }
