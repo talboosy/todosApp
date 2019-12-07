@@ -15,6 +15,7 @@ export class AddTodoComponent implements OnInit {
 @Output() addTodo: EventEmitter<any> = new EventEmitter();
 
   title:string;
+  selectedCat: string = "Personal"
   
 //  public dbtodos: FirebaseListObservable<DBTodo[]>;
 //db: AngularFireDatabase // in constructor bracets
@@ -30,13 +31,18 @@ export class AddTodoComponent implements OnInit {
   // getDBTodos() {
   //   return this.dbtodos;
   // }
+  updateCat(text: string) {
+    this.selectedCat = text;
+    console.log(this.selectedCat)
+  }
 
   onSubmit(f: NgForm): void {
     console.log("submitted")
-    
+    console.log()
     const todo = {
       title: this.title,
-      completed: false
+      completed: false,
+      category: this.selectedCat
     }
 
     this.addTodo.emit(todo);
