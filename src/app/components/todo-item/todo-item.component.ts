@@ -29,12 +29,12 @@ setClasses() {
 onToggle(todo) {
   // Toggle in UI
   console.log("toggled")
+  // var isCompleted = todo.completed;
   todo.completed = !todo.completed
   // Toggle on server
-  // this.todoService.toggleCompleted(todo).subscribe(todo => {
-  //   console.log('toggled server')
-  //   console.log(todo)
-  // })
+  this.todoService.updateTodo(todo)
+  // todo.completed = !todo.completed
+  console.log(todo.completed)
 }
 
 onDelete(todo) {

@@ -67,10 +67,10 @@ export class TodoService {
      this.todos.add(todo)
   }
 
-  updateTodo(id, update) {
+  updateTodo(todo: Todo) {
     //Get the task document
-    this.todoDoc = this.db.doc<Todo>(`${config.collection_endpoint}/${id}`);
-    this.todoDoc.update(update);
+    this.todoDoc = this.db.doc<Todo>(`${config.collection_endpoint}/${todo.id}`);
+    this.todoDoc.update(todo);
  }
 
  deleteTodo(todo) {
