@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-
+import { AstMemoryEfficientTransformer } from '@angular/compiler';
+import {NgForm} from '@angular/forms';
 // class DBTodo {
 //   constructor(public title) { }
 // }
@@ -30,15 +31,16 @@ export class AddTodoComponent implements OnInit {
   //   return this.dbtodos;
   // }
 
-  onSubmit() {
+  onSubmit(f: NgForm): void {
     console.log("submitted")
+    
     const todo = {
       title: this.title,
       completed: false
     }
 
     this.addTodo.emit(todo);
-
+    f.reset();
   }
 
 }
