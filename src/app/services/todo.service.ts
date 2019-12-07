@@ -73,9 +73,9 @@ export class TodoService {
     this.todoDoc.update(update);
  }
 
- deleteTask(id) {
+ deleteTodo(todo) {
   //Get the task document
-  this.todoDoc = this.db.doc<Todo>(`${config.collection_endpoint}/${id}`);
+  this.todoDoc = this.db.doc<Todo>(`${config.collection_endpoint}/${todo.id}`);
   //Delete the document
   this.todoDoc.delete();
 }
