@@ -27,9 +27,10 @@ export class TodosComponent implements OnInit {
         return actions.map(a => {
           //Get document data
           const data = a.payload.doc.data() as Todo;
+          console.log(data)
           //Get document id
           const id = a.payload.doc.id;
-          console.log(id)
+          // console.log(id)
           //Use spread operator to add the id to the document data
           return { id, ...data };
       });

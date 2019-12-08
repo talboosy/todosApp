@@ -1,10 +1,10 @@
 <form #f="ngForm" class="form" (ngSubmit)="onSubmit(f)" >
-    <input type="text" name="title" value="clear" [(ngModel)]="title" placeholder="Add Todo...">
-    <select  name="categories" id="categories" #categories (change)="updateCat(categories.options[categories.value].text)">
+    <input type="text" class="form-control" name="title" value="clear" [(ngModel)]="title" placeholder="Add Todo...">
+    <select  class="form-control col-1" name="categories" id="categories" #categories (change)="updateCat(categories.options[categories.value].text)">
             <option value="0">Personal</option>
             <option value="1">School</option>
             <option value="2">Work</option>
     </select>
-    <input type="submit" value="Submit" class="btn" >
+    <input type="submit" value="Submit" class="btn btn-success" >
 
 </form>

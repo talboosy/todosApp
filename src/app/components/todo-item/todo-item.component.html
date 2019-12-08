@@ -1,4 +1,4 @@
-
+<!-- 
 <div [ngClass]="setClasses()">
             <p>
      {{ todo.category }}
@@ -8,4 +8,24 @@
         <button (click)="onDelete(todo)" class="del">X</button>
     </p>
     
-</div>
+</div> -->
+
+<div [ngClass]="setClasses()" class="card mb-1" style=" max-height: 70px;">
+        <div class="row no-gutters">
+            <div class="col-sm" style="max-width: 50px; padding-top:22px; padding-left:10px">
+                    <input (change)="onToggle(todo)" type="checkbox" [checked]=todo.completed />
+            </div>
+          <div class="col-md-2" style="padding-top:18px" >
+            <h3>{{ todo.category }}</h3>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title" >{{todo.title}}</h5>
+              <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+            </div>
+          </div>
+          <div class="col-md-1 center" style="padding-top:3px">
+                <button (click)="onDelete(todo)" class="btn btn-danger del" >DEL</button>
+          </div>
+        </div>
+      </div>
